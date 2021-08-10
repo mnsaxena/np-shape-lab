@@ -15,7 +15,7 @@ zPos = []
 
 
 # read data, populate lists
-with open('disc.txt', mode='r') as csv_file:
+with open('sphere.txt', mode='r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter='\t')
     fields = next(csv_reader)
     for line in csv_reader:

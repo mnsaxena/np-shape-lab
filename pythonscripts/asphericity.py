@@ -10,7 +10,7 @@ zPos = []
 charge = []
 
 # loop through data as a csv, store data in lists
-with open('sphere.txt', mode='r') as csv_file:
+with open('disc.txt', mode='r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter='\t')
     fields = next(csv_reader)
     i=0
@@ -88,11 +88,13 @@ for item in range(0,Nv):
     avgRadius.append(average1)
 
 
-plt.plot(indices, distance, 'o', label='vertices distance')
-plt.plot(indices, avgRadius, label='average distance')
-plt.plot(indices,sphere,label='original distance')
+plt.plot(indices, distance, 'o', label='Vertices Distance')
+plt.plot(indices, avgRadius, label='Average Distance')
+plt.plot(indices,sphere,label="Original Distance")
+plt.xlabel("Vertex")
+plt.ylabel("Distance from Origin")
 plt.legend()
-plt.title("Sphere Dataset")
+plt.title("Disc Dataset")
 plt.show()
 
 #TODO make subplots to compare data

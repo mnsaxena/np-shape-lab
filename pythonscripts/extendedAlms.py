@@ -3,7 +3,7 @@ import csv
 import scipy.linalg as la
 import matplotlib.pyplot as plt
 
-# indicate data file, should read from a p.lammpstrj file
+# indicate data file, should read from a p.lammpstrj file (following is for the disc)
 filename = 'p.lammpstrj'
 
 # define spherical harmonics constants
@@ -86,15 +86,22 @@ for frame in range(0, frames):
 A0 = []
 A1 = []
 A2 = []
+timesteps = []
 for i in range(0, frames):
     A0.append(Alms[i][0])
     A1.append(Alms[i][1])
     A2.append(Alms[i][2])
+    timesteps.append(i)
     
 # graph Alms over time
-plt.plot(times,A0,label='Y00')
-plt.plot(times,A1,label='Y10')
-plt.plot(times,A2,label='Y20')
+plt.plot(timesteps,A0,label='A00')
+plt.plot(timesteps,A1,label='A10')
+plt.plot(timesteps,A2,label='A20')
+plt.xlabel('Timestep')
+plt.ylabel('Alm Coefficient')
 plt.legend()
-plt.title("Alm Values For " + filename + " (disc)")
+plt.title("Alm Values For Homogeneously Charged Disc Control Simulation")
 plt.show()
+
+plt.plot(timesteps, averages)
+plt.show
